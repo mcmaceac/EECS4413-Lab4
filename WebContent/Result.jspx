@@ -15,7 +15,7 @@
 <link rel="StyleSheet" href="res/mc.css" type="text/css" title="cse4413" media="screen, print"/>
 </head>
 <body>
-	<form>
+	<form action="" method="POST">
 	<fieldset>
 		<legend>${legendName}</legend>
 			<table>
@@ -32,7 +32,6 @@
 					<f:formatNumber type="currency" currencySymbol="$">${monthlyPayments}</f:formatNumber>
 					</td>
 				</tr>
-				
 				<tr>
 					<td><input type="submit" value="Recompute" name="restart"/></td>
 				</tr>

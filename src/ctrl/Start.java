@@ -90,12 +90,7 @@ public class Start extends HttpServlet {
 		errorMessage = null;
 		//submit was not pressed, so we forward to the start page
 		if (request.getParameter("submit") == null) {
-			if (request.getParameter("restart") == null) {
-				request.getRequestDispatcher(startPage).forward(request, response);
-			}
-			else { //restart has been pressed
-				response.sendRedirect(this.getServletContext().getContextPath() + "/Start");
-			}
+			request.getRequestDispatcher(startPage).forward(request, response);
 		}
 		else {	//submit has been pressed, compute the result
 			computePayment(request);
