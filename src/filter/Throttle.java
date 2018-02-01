@@ -42,17 +42,17 @@ public class Throttle implements Filter {
 	 */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		// TODO Auto-generated method stub
-
+		boolean enabled = false;
 		HttpServletRequest req = (HttpServletRequest) request;
 		
 		long lastTime = req.getSession().getLastAccessedTime();
 		long currTime = System.currentTimeMillis();
 		
-		long timeBetween = ((currTime - lastTime) / 1000);
+		long timeBetween = (currTime - lastTime);
 		
 		System.out.println("Time between requests: " + timeBetween);
 		
-		if (timeBetween < 5) {
+		if (timeBetween < 1000) {
 			request.getRequestDispatcher(TRY_AGAIN).forward(request, response);
 		}
 		else {

@@ -13,9 +13,10 @@
 <head>
 <title>Insert title here</title>
 <link rel="StyleSheet" href="res/mc.css" type="text/css" title="cse4413" media="screen, print"/>
+<script type="text/javascript" src="res/mc.js">;</script>
 </head>
 <body>
-	<form action="" method="POST">
+	<form action="" method="POST" onsubmit="return validate();">
 		<fieldset>
 			<legend>${legendName}</legend>
 			<table>
@@ -27,19 +28,19 @@
 					</td>
 				</tr>
 				<tr>
-					<td><label for="principal">Principal</label>
+					<td><label for="principal" id="principalLabel">Principal<span id="principalError" class="error"></span></label>
 						<p>(total loan amount after studies)</p>
 					</td>
 					<td><input type="number" id="principal" name="principal" step="0.01" value="${sessionScope['principal']}"/></td>
 				</tr>
 				
 				<tr>
-					<td><label for="interest">Annual Interest Rate</label></td>
+					<td><label for="interest">Annual Interest Rate<span id="interestError" class="error"></span></label></td>
 					<td><input type="number" id="interest" name="interest" step="0.01" value="${sessionScope['interest']}"/></td>
 				</tr>
 				
 				<tr>
-					<td><label for="period">Payment Period</label>
+					<td><label for="period">Payment Period<span id="periodError" class="error"></span></label>
 						<p>(total number of months)</p>
 					</td>
 					<td><input type="number" id="period" name="period" step="1" value="${sessionScope['period']}"/></td>
